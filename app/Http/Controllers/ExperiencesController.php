@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ExperiencesRequest;
+use App\Models\Categories;
 use App\Models\Experiences;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +15,11 @@ class ExperiencesController extends Controller
      */
     public function index()
     {
-        //
+        $experiences = Experiences::paginate(3);
+
+        return view('experiences.index', [
+            'experiences' => $experiences,
+        ]);
     }
 
     /**
@@ -22,7 +27,14 @@ class ExperiencesController extends Controller
      */
     public function create()
     {
-        //
+        $experience = new Experiences();
+        $categoriesIds = $experience->categories()->pluck('id');
+
+        return view('experiences.add', [
+            'experience' => $experience,
+            'categories' => Categories::select('id', 'name')->get(),
+            'categoriesIds' => $categoriesIds,
+        ]);
     }
 
     /**
@@ -30,31 +42,47 @@ class ExperiencesController extends Controller
      */
     public function store(ExperiencesRequest $request)
     {
-        //
+        $experience = Experiences::create($this->EditImage(new Experiences(), $request));
+        $experience->categories()->sync($request->validated('categories'));
+        return redirect()->route('experiences.show', ['slug' => $experience->slug, 'experience' => $experience->id])->with('success', "l'experience pro a été créé avec succes !");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Experiences $experiences)
+    public function show(string $slug, Experiences $experience)
     {
-        //
+        if($experience->slug !== $slug) {
+            return to_route('experiences.show', ['slug' => $experience->slug, 'experience' => $experience->id]);
+        }
+
+        return view('experiences.show', [
+            'experience' => $experience,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Experiences $experiences)
+    public function edit(Experiences $experience)
     {
-        //
+        $categoriesIds = $experience->categories()->pluck('id');
+
+        return view('experiences.edit', [
+            'experience' => $experience,
+            'categories' => Categories::select('id', 'name')->get(),
+            'categoriesIds' => $categoriesIds,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ExperiencesRequest $request, Experiences $experiences)
+    public function update(ExperiencesRequest $request, Experiences $experience)
     {
-        //
+        $experience->update($this->EditImage($experience, $request));
+        $experience->categories()->sync($request->validated('categories'));
+        return redirect()->route('experiences.show', ['slug' => $experience->slug, 'experience' => $experience->id])->with('success', "l'expérience pro a été modifié !");
     }
 
     private function EditImage (Experiences $experiences, FormRequest $request): array 
@@ -77,8 +105,13 @@ class ExperiencesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Experiences $experiences)
+    public function destroy(Experiences $experience)
     {
-        //
+        $experience->delete();
+        if($experience->image) {
+            Storage::disk('public')->delete($experience->image);
+        }
+        $experience->categories()->detach();
+        return to_route('experiences.index', ['id' => $experience->id])->with('success', "l'expérience pro a été supprimer !");
     }
 }

@@ -5,7 +5,7 @@
 @section('content')
     <h1 class="text-3xl font-bold">Experiences :</h1>
     <div class="flex my-4">
-        <a class="ml-2 px-5 py-3 bg-blue-800 hover:bg-blue-500 text-white rounded-sm" href="{{ route('experiences.add') }}">Créer une réalisation</a>
+        <a class="ml-2 px-5 py-3 bg-blue-800 hover:bg-blue-500 text-white rounded-sm" href="{{ route('experiences.add') }}">Créer une experience pro</a>
     </div>
     <div>
         @foreach ($experiences as $experience)
