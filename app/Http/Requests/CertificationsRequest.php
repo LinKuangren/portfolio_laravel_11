@@ -22,8 +22,8 @@ class CertificationsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'min:2'],
-            'year' => ['required', 'min:1', 'max:7']
+            'name' => ['required', 'min:2', 'unique:certifications,name,' . $this->certification->id],
+            'year' => ['required', 'min:1', 'max:12']
         ];
     }
 }
