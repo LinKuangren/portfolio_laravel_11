@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductionsRequest extends FormRequest
@@ -22,10 +24,18 @@ class ProductionsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required'],
+            'title' => ['required', 'unique:productions,title,' . $this->certification->id, Rule::unique('productions')->ignore($this->route()->parameter('production'))],
+            'slug' => ['required', 'min:4', 'regex:/^[A-Za-z0-9\-]+$/', Rule::unique('productions')->ignore($this->route()->parameter('production'))],
             'image' => ['required'],
             'content' => [],
             'categories' => ['array', 'exists:categories,id'],
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'slug' => $this->input('slug') ?: Str::slug($this->input('title'))
+        ]);
     }
 }
