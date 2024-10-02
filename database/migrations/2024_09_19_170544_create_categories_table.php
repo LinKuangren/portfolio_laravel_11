@@ -21,13 +21,15 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
-        Schema::create('productions_categories', function(Blueprint $table) {
+        Schema::create('categories_productions', function(Blueprint $table) {
             $table->foreignIdFor(Productions::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Categories::class)->constrained()->cascadeOnDelete();
+            $table->primary(['productions_id', 'categories_id']);
         });
-        Schema::create('expreriences_categories', function(Blueprint $table) {
+        Schema::create('categories_expreriences', function(Blueprint $table) {
             $table->foreignIdFor(Experiences::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Categories::class)->constrained()->cascadeOnDelete();
+            $table->primary(['experiences_id', 'categories_id']);
         });
     }
 
@@ -37,7 +39,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('categories');
-        Schema::dropIfExists('productions_categories');
-        Schema::dropIfExists('expreriences_categories');
+        Schema::dropIfExists('categories_productions');
+        Schema::dropIfExists('categories_expreriences');
     }
 };
