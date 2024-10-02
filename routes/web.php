@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CertificationsController;
+use App\Http\Controllers\ExperiencesController;
 use App\Http\Controllers\ProductionsController;
 use App\Http\Controllers\SkillsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('test');
+    return view('main.home');
 })->name('home');
 
 Route::prefix('categories')->name('categories.')->controller(CategoriesController::class)->group(function() {
@@ -63,4 +64,21 @@ Route::prefix('productions')->name('productions.')->controller(ProductionsContro
     ])->name('show');
 
     Route::delete('/{production}/supprimer', 'destroy')->name('delete');
+});
+
+Route::prefix('experiences')->name('experiences.')->controller(ExperiencesController::class)->group(function() {
+    Route::get('/', 'index')->name('index');
+
+    Route::get('/ajout', 'create')->name('add');
+    Route::post('/ajout', 'store');
+
+    Route::get('/{experience}/modifier', 'edit')->name('edit');
+    Route::post('/{experience}/modifier', 'update');
+
+    Route::get('/{slug}-{experience}', 'show')->where([
+        'experience' => '[0-9]+',
+        'slug' => '[A-Za-z0-9\-\%]+',
+    ])->name('show');
+
+    Route::delete('/{experience}/supprimer', 'destroy')->name('delete');
 });
