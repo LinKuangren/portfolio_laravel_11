@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreignIdFor(Categories::class)->constrained()->cascadeOnDelete();
             $table->primary(['productions_id', 'categories_id']);
         });
-        Schema::create('categories_expreriences', function(Blueprint $table) {
+        Schema::create('categories_experiences', function(Blueprint $table) {
             $table->foreignIdFor(Experiences::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Categories::class)->constrained()->cascadeOnDelete();
             $table->primary(['experiences_id', 'categories_id']);
