@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ExperiencesRequest;
 use App\Models\Experiences;
-use App\Http\Requests\StoreExperiencesRequest;
-use App\Http\Requests\UpdateExperiencesRequest;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ExperiencesController extends Controller
 {
@@ -27,7 +28,7 @@ class ExperiencesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreExperiencesRequest $request)
+    public function store(ExperiencesRequest $request)
     {
         //
     }
@@ -51,9 +52,26 @@ class ExperiencesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateExperiencesRequest $request, Experiences $experiences)
+    public function update(ExperiencesRequest $request, Experiences $experiences)
     {
         //
+    }
+
+    private function EditImage (Experiences $experiences, FormRequest $request): array 
+    {
+        $data = $request->validated();
+
+        /** @var UploadedFile|null $image */
+        $image = $request->validated('image');
+        if($image === null || $image->getError()) {
+            return $data;
+        }
+        if($experiences->image) {
+            Storage::disk('public')->delete($experiences->image);
+        }
+
+        $data['image'] = $image->store('experiences', 'public');
+        return $data;
     }
 
     /**
