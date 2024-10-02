@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+    @vite('resources/css/app.css')
     <title>@yield('title')</title>
 </head>
-<body>
+<body class="flex bg-gray-200">
     @include('layout.header')
-    <div class="body">
+    <div class="mx-auto">
         @yield('content')
     </div>
-    @include('layout.footer')
+    {{-- @include('layout.footer') --}}
 </body>
 </html>

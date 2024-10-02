@@ -1,9 +1,16 @@
-<header>
-    <nav>
+<header class="hidden overflow-hidden lg:flex flex-col h-full bg-blue-900 text-white shadow-2xl min-h-screen">
+    <div class="w-32 m-4 mb-8">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo-danne-romain" class="ease-in-out transform hover:-translate-y-0.5">
+    </div>
+    <p>ADMIN</p>
+    <hr class="ml-2 mr-2 mb-3 mt-2"/>
+    <nav class="text-lg m-4">
         <ul>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Expériences</a></li>
-            <li><a href="">Réalisation</a></li>
+            <li class="mb-4"><a href="{{ route('home') }}" class="">Accueil</a></li>
+            <li class="mb-4"><a href="{{ route('categories.index') }}">Categories</a></li>
+            <li class="mb-4"><a href="{{ route('certifications.index') }}">Certifications</a></li>
+            <li class="mb-4"><a href="{{ route('categories.index') }}">Expériences</a></li>
+            <li class="mb-4"><a href="{{ route('productions.index') }}">Réalisations</a></li>
         </ul>
     </nav>
 </header>
