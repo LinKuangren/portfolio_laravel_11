@@ -2,15 +2,16 @@
     <div class="w-32 m-4 mb-8">
         <img src="{{ asset('images/logo.png') }}" alt="Logo-danne-romain" class="ease-in-out transform hover:-translate-y-0.5">
     </div>
-    <p>ADMIN</p>
+    <p class="text-center font-bold">ADMINISTRATEUR</p>
     <hr class="ml-2 mr-2 mb-3 mt-2"/>
     <nav class="text-lg m-4">
         <ul>
-            <li class="mb-4"><a href="{{ route('home') }}" class="">Accueil</a></li>
-            <li class="mb-4"><a href="{{ route('categories.index') }}">Categories</a></li>
-            <li class="mb-4"><a href="{{ route('certifications.index') }}">Certifications</a></li>
-            <li class="mb-4"><a href="{{ route('categories.index') }}">Expériences</a></li>
-            <li class="mb-4"><a href="{{ route('productions.index') }}">Réalisations</a></li>
+            <li class="mb-4"><i class="fa-solid fa-house mr-2"></i><a href="{{ route('home') }}" class="">Accueil</a></li>
+            <li class="mb-4"><i class="fa-solid fa-tag mr-2"></i><a href="{{ route('categories.index') }}">Categories</a></li>
+            <li class="mb-4"><i class="fa-solid fa-certificate mr-2"></i><a href="{{ route('certifications.index') }}">Certifications</a></li>
+            <li class="mb-4"><i class="fa-solid fa-handshake mr-2"></i><a href="{{ route('experiences.index') }}">Expériences</a></li>
+            <li class="mb-4"><i class="fa-solid fa-folder-open mr-2"></i><a href="{{ route('productions.index') }}">Réalisations</a></li>
+            <li class="mb-4"><i class="fa-solid fa-database mr-2"></i><a href="{{ route('skills.index') }}">Compétences</a></li>
         </ul>
     </nav>
 </header>
