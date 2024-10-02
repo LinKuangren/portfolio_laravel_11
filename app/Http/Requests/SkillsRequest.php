@@ -22,7 +22,7 @@ class SkillsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'name' => ['required', 'unique:skills,name,' . $this->skill->id],
             'level' => ['required'],
         ];
     }
