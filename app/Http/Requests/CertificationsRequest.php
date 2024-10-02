@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CertificationsRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class CertificationsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'min:2', 'unique:certifications,name,' . $this->certification->id],
+            'name' => ['required', 'min:2', Rule::unique('certifications')->ignore(optional($this->certification)->id)],
             'year' => ['required', 'min:1', 'max:12']
         ];
     }
