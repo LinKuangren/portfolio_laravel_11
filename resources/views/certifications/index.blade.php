@@ -1,6 +1,7 @@
 @extends('layout.base')
 
 @section('title', 'Toutes les certifications')
+@section('description', 'Page de toutes les certifications.')
 
 @section('content')
     <h1 class="text-3xl font-bold">Certifications :</h1>

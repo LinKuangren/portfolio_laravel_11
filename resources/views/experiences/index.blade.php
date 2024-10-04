@@ -1,6 +1,7 @@
 @extends('layout.base')
 
-@section('title', 'Toutes les experiences')
+@section('title', 'Toutes les experiences pro')
+@section('description', 'Page de toutes les exprériences pro.')
 
 @section('content')
     <h1 class="text-3xl font-bold">Experiences :</h1>

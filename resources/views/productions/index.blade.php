@@ -1,6 +1,7 @@
 @extends('layout.base')
 
 @section('title', 'Toutes les productions')
+@section('description', 'Page de toutes les réalisations.')
 
 @section('content')
     <h1 class="text-3xl font-bold">Productions :</h1>

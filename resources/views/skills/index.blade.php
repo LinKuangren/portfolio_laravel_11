@@ -1,6 +1,7 @@
 @extends('layout.base')
 
 @section('title', 'Toutes les compétences')
+@section('description', 'Page de toutes les compétences.')
 
 @section('content')
     <h1 class="text-3xl font-bold">Compétences :</h1>
