@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     @vite('resources/css/app.css')
     <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
 </head>
 <body class="flex bg-blue-200">
     @include('layout.admin.header_admin')

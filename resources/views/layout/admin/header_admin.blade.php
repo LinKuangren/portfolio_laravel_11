@@ -12,6 +12,18 @@
             <li class="mb-4"><i class="fa-solid fa-handshake mr-2"></i><a href="{{ route('experiences.index') }}">Expériences</a></li>
             <li class="mb-4"><i class="fa-solid fa-folder-open mr-2"></i><a href="{{ route('productions.index') }}">Réalisations</a></li>
             <li class="mb-4"><i class="fa-solid fa-database mr-2"></i><a href="{{ route('skills.index') }}">Compétences</a></li>
+            <li class="mb-4"><i class="fas fa-address-book pr-1"></i><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
     </nav>
+    <div class="m-auto mb-2 mb-lg-0">
+        @auth
+            {{ Auth::user()->name }}
+            <form action="{{ route('auth.logout') }}" method="post">
+                @method("delete")
+                @csrf
+                <button class="nav-link">Se déconnecter</button>
+            </form>
+        @endauth
+    </div>
+    <a href="{{ route('download_cv') }}" class="btn btn-primary">Télécharger mon CV</a>
 </header>
