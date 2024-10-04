@@ -45,9 +45,15 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $name, Categories $categorie)
     {
-        return view('categories.show');
+        if($categorie->name !== $name) {
+            return to_route('categories.show', ['name' => $categorie->name, 'categorie' => $categorie->id]);
+        }
+
+        return view('categories.show', [
+            'categorie' => $categorie,
+        ]);
     }
 
     /**
