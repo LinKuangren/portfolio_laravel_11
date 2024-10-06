@@ -3,30 +3,31 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CertificationsController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ExperiencesController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductionsController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RedirectLogin;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
-Route::get('/', function () {
-    return view('main.home');
-})->name('home');
-Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::get('/', [MainController::class, 'home'])->name('home');
+
+Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+Route::post('/contact', [MainController::class, 'contactPush'])->name('contactPush');
 
 Route::prefix('categories')->name('categories.')->controller(CategoriesController::class)->group(function() {
-    Route::get('/', 'index')->name('index')->middleware(RedirectLogin::class);
+    Route::get('/', 'index')->name('index');
 
-    Route::get('/{categorie}/detail', 'show')->name('show');
-
-    Route::get('/{name}-{categorie}', 'show')->where([
+    Route::get('/{name}-{categorie}/realisations', 'showProductions')->where([
         'categorie' => '[0-9]+',
         'name' => '[A-Za-z0-9\-\%]+',
-    ])->name('show');
+    ])->name('showProductions');
+
+    Route::get('/{name}-{categorie}/experiences-pro', 'showExperiences')->where([
+        'categorie' => '[0-9]+',
+        'name' => '[A-Za-z0-9\-\%]+',
+    ])->name('showExperiences');
 
     Route::middleware([RedirectLogin::class])->group(function() {
         Route::get('/ajout', 'create')->name('add');
@@ -119,4 +120,4 @@ Route::middleware([RedirectLogin::class])->group(function() {
     Route::get('user', [UserController::class, 'profil'])->name('user.profil');
 });
 
-Route::get('/download_cv', [DownloadController::class, 'download'])->name('download_cv');
+Route::get('/download_cv', [MainController::class, 'download'])->name('download_cv');
