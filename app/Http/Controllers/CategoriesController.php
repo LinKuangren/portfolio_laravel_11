@@ -45,14 +45,30 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $name, Categories $categorie)
+    public function showProductions(string $name, Categories $categorie)
     {
         if($categorie->name !== $name) {
             return to_route('categories.show', ['name' => $categorie->name, 'categorie' => $categorie->id]);
         }
 
-        return view('categories.show', [
+        return view('categories.showProductions', [
             'categorie' => $categorie,
+            'productions' => $categorie->productions()->paginate(1),
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function showExperiences(string $name, Categories $categorie)
+    {
+        if($categorie->name !== $name) {
+            return to_route('categories.show', ['name' => $categorie->name, 'categorie' => $categorie->id]);
+        }
+
+        return view('categories.showExperiences', [
+            'categorie' => $categorie,
+            'experiences' => $categorie->experiences()->paginate(1),
         ]);
     }
 

@@ -12,4 +12,12 @@ class Categories extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function productions() {
+        return $this->belongsToMany(Productions::class);
+    }
+
+    public function experiences() {
+        return $this->belongsToMany(Experiences::class);
+    }
 }
