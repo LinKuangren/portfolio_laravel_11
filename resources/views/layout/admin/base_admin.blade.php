@@ -12,7 +12,7 @@
 </head>
 <body class="flex bg-blue-200">
     @include('layout.admin.header_admin')
-    <div class="mx-auto">
+    <div class="mx-auto bg-white px-10">
         @yield('content')
     </div>
     {{-- @include('layout.footer_admin') --}}
