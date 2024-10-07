@@ -14,6 +14,9 @@
         @foreach ($skills as $skill)
             <article>
                 <h3 class="text-3xl">{{ $skill->name }}</h3>
+                <div class="flex justify-center">
+                    <img class="h-44 hover:border-solid hover:border-2 hover:border-blue-500" src="{{ $skill->imageUrl() }}" alt="{{ $skill->image }}">
+                </div>
                 <p>{{ $skill->level }} ans</p>
                 @auth
                     <div class="flex mt-4">

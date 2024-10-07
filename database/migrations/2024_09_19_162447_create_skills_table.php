@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image');
             $table->integer('level');
             $table->timestamps();
         });
@@ -24,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('skills');
+        Schema::dropIfExists('skills', function(Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
 };

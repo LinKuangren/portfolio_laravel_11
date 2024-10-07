@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SkillsRequest;
 use App\Models\Skills;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SkillsController extends Controller
 {
@@ -15,7 +17,7 @@ class SkillsController extends Controller
     {
         $skills = Skills::paginate(3);
 
-        return View('skills.index', [
+        return view('skills.index', [
             'skills' => $skills,
         ]);
     }
@@ -37,7 +39,7 @@ class SkillsController extends Controller
      */
     public function store(SkillsRequest $request)
     {
-        $skill = Skills::create($request->validated());
+        $skill = Skills::create($this->EditImage(new Skills(), $request));
 
         return redirect()->route('skills.index')->with('sucess', "La compétence a été créé !");
     }
@@ -57,9 +59,26 @@ class SkillsController extends Controller
      */
     public function update(SkillsRequest $request, Skills $skill)
     {
-        $skill->update($request->validated());
+        $skill->update($this->EditImage($skill, $request));
 
         return redirect()->route('skills.index')->with('success', "La compétence a été modifier !");
+    }
+
+    private function EditImage (Skills $skills, FormRequest $request): array 
+    {
+        $data = $request->validated();
+
+        /** @var UploadedFile|null $image */
+        $image = $request->validated('image');
+        if($image === null || $image->getError()) {
+            return $data;
+        }
+        if($skills->image) {
+            Storage::disk('public')->delete($skills->image);
+        }
+
+        $data['image'] = $image->store('skills', 'public');
+        return $data;
     }
 
     /**
@@ -68,6 +87,9 @@ class SkillsController extends Controller
     public function destroy(Skills $skill)
     {
         $skill->delete();
+        if($skill->image) {
+            Storage::disk('public')->delete($skill->image);
+        }
 
         return to_route('skills.index', ['skill' => $skill->id])->with('success', "La compétence a été supprimer !");
     }

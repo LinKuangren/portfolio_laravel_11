@@ -1,5 +1,5 @@
-<header class="hidden overflow-hidden lg:flex flex-col h-full bg-blue-900 text-white shadow-2xl min-h-screen">
-    <div class="w-32 m-4 mb-8">
+<header class="hidden overflow-hidden lg:flex flex-col h-full bg-blue-900 text-white shadow-2xl min-h-screen px-5 py-4">
+    <div class="w-32 m-4 mb-8 self-center">
         <img src="{{ asset('images/logo.png') }}" alt="Logo-danne-romain" class="ease-in-out transform hover:-translate-y-0.5">
     </div>
     <p class="text-center font-bold">ADMINISTRATEUR</p>
@@ -25,5 +25,5 @@
             </form>
         @endauth
     </div>
-    <a href="{{ route('download_cv') }}" class="btn btn-primary">Télécharger mon CV</a>
+    <a href="{{ route('download_cv') }}" class="px-3 py-2 bg-gray-800 text-white rounded-sm"><i class="fa-solid fa-download mr-2"></i>Télécharger mon CV</a>
 </header>

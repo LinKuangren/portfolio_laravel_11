@@ -10,9 +10,9 @@
             <a class="ml-2 px-5 py-3 bg-blue-800 text-white rounded-sm" href="{{ route('categories.add') }}">Créer une catégorie</a>
         </div>
     @endauth
-    <div>
+    <div class="grid grid-cols-3 xl:grid-cols-5 gap-4 px-4 py-4">
         @foreach ($categories as $categorie)
-            <article>
+            <article class="w-full h-24 bg-purple-700 rounded-xl">
                 <h3 class="text-3xl"><a href="{{ route('categories.showProductions', ['name' => $categorie->name, 'categorie' => $categorie->id])}}">{{ $categorie->name }}</a></h3>
                 @auth
                     <div class="flex mt-4">

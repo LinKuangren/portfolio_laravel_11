@@ -1,5 +1,5 @@
-<header class="hidden overflow-hidden lg:flex flex-col  h-full bg-gradient-to-tr from-gray-700 via-gray-800 to-gray-900 text-white shadow-2xl min-h-screen">
-    <div class="w-32 m-4 mb-8">
+<header class="hidden overflow-hidden lg:flex flex-col  h-full bg-gradient-to-tr from-gray-700 via-gray-800 to-gray-900 text-white shadow-2xl min-h-screen px-5 py-4">
+    <div class="w-32 m-4 mb-8 self-center">
         <img src="{{ asset('images/logo.png') }}" alt="Logo-danne-romain" class="ease-in-out transform hover:-translate-y-0.5">
     </div>
     <hr class="ml-2 mr-2 mb-3 mt-2"/>
@@ -32,5 +32,5 @@
             </div>
         @endguest
     </div>
-    <a href="{{ route('download_cv') }}" class="btn btn-primary">Télécharger mon CV</a>
+    <a href="{{ route('download_cv') }}" class="px-3 py-2 bg-blue-800 text-white rounded-sm"><i class="fa-solid fa-download mr-2"></i>Télécharger mon CV</a>
 </header>
