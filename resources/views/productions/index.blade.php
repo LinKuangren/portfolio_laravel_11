@@ -32,6 +32,6 @@
                 @endauth
             </article>
         @endforeach
-        {{ $productions->links('pagination::tailwind') }}
     </div>
+    {{ $productions->links('pagination::tailwind') }}
 @endsection

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
 use App\Mail\ContactMail;
+use App\Models\Certifications;
+use App\Models\Experiences;
+use App\Models\Productions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -11,7 +14,15 @@ class MainController extends Controller
 {
     public function home() 
     {
-        return view('main.home');
+        $experiences = Experiences::orderBy('created_at', 'asc')->get()->take(3);
+        $productions = Productions::orderBy('created_at', 'asc')->get()->take(3);
+        $certifications = Certifications::orderBy('created_at', 'asc')->get()->take(2);
+
+        return view('main.home', [
+            'experiences' => $experiences,
+            'productions' => $productions,
+            'certifications' => $certifications,
+        ]);
     }
 
     public function contact() {

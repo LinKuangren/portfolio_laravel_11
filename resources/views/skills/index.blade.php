@@ -7,7 +7,7 @@
     <h1 class="text-3xl font-bold">Compétences :</h1>
     @auth
         <div class="flex my-4">
-            <a class="ml-2 px-5 py-3 bg-blue-800 text-white rounded-sm" href="{{ route('skills.add') }}">Créer une catégorie</a>
+            <a class="ml-2 px-5 py-3 bg-blue-800 text-white rounded-sm" href="{{ route('skills.add') }}">Créer une compétence</a>
         </div>
     @endauth
     <div>

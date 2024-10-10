@@ -4,6 +4,6 @@
 @section('description', 'Page pour ajouter une réalisation.')
 
 @section('content')
-    <h1>Créer une réalisation</h1>
+    <h1 class="text-4xl font-bold text-center mt-6 mb-3">Créer une réalisation</h1>
     @include('productions.form')
 @endsection

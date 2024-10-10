@@ -4,6 +4,6 @@
 @section('description', 'Page pour ajouter une expérience pro.')
 
 @section('content')
-    <h1>Créer une experience pro</h1>
+    <h1 class="text-4xl font-bold text-center mt-6 mb-3">Créer une experience pro</h1>
     @include('experiences.form')
 @endsection
