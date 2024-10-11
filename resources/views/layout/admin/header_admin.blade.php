@@ -14,13 +14,13 @@
     <hr class="ml-2 mr-2 mb-3 mt-2"/>
     <nav class="text-lg m-4">
         <ul>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-house mr-2"></i><a href="{{ route('home') }}" class="">Accueil</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-tag mr-2"></i><a href="{{ route('categories.index') }}">Categories</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-certificate mr-2"></i><a href="{{ route('certifications.index') }}">Certifications</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-handshake mr-2"></i><a href="{{ route('experiences.index') }}">Expériences</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-folder-open mr-2"></i><a href="{{ route('productions.index') }}">Réalisations</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-database mr-2"></i><a href="{{ route('skills.index') }}">Compétences</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fas fa-address-book pr-1"></i><a href="{{ route('contact') }}">Contact</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-house mr-2"></i><a class="hover:text-emerald-300" href="{{ route('home') }}" class="">Accueil</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-tag mr-2"></i><a class="hover:text-emerald-300" href="{{ route('categories.index') }}">Categories</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-certificate mr-2"></i><a class="hover:text-emerald-300" href="{{ route('certifications.index') }}">Diplômes</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-handshake mr-2"></i><a class="hover:text-emerald-300" href="{{ route('experiences.index') }}">Expériences</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-folder-open mr-2"></i><a class="hover:text-emerald-300" href="{{ route('productions.index') }}">Réalisations</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-database mr-2"></i><a class="hover:text-emerald-300" href="{{ route('skills.index') }}">Compétences</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fas fa-address-book pr-1"></i><a class="hover:text-emerald-300" href="{{ route('contact') }}">Contact</a></li>
         </ul>
     </nav>
     <div class="m-auto mb-2 mb-lg-0 flex">
@@ -29,10 +29,13 @@
             <form action="{{ route('auth.logout') }}" method="post">
                 @method("delete")
                 @csrf
-                <button class="nav-link">Se déconnecter</button>
+                <button class="nav-link hover:text-emerald-300" class="nav-link">Se déconnecter</button>
             </form>
         @endauth
     </div>
-    <a href="{{ route('download_cv') }}" class="px-3 py-2 bg-gray-800 hover:bg-gray-600 text-white rounded-sm"><i class="fa-solid fa-download mr-2"></i>Télécharger mon CV</a>
+    <div class="flex justify-center">
+        <a href="https://github.com/LinKuangren"><i class="fa-brands fa-github mr-2 hover:text-emerald-500"></i></a>
+        <a href="https://www.linkedin.com/in/romain-danne-969440194/"><i class="fa-brands fa-linkedin hover:text-emerald-500"></i></a>
+    </div>
 </header>
 <div class="ml-56 hidden lg:flex"></div>

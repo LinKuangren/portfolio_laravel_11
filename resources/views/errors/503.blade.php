@@ -44,16 +44,20 @@
 
     a {
         text-decoration: none;
-        color: tomato;
+        color: white;
         font-weight: 500;
-        background-color: skyblue;
+        background-color: rgb(110 231 183);
         padding: 1rem 3rem;
         border-radius: 5px;
+        border-width: 2px;
+        border-color: rgb(16 185 129);
     }
 
     a:hover {
-        color: steelblue;
-        background-color: cornsilk;
+        color: white;
+        background-color: rgb(16 185 129);
+        border-width: 2px;
+        border-color: rgb(16 185 129);
     }
  
     .notfound {
@@ -146,8 +150,8 @@
         <h3>Oops! Page not found</h3>
         <h1><span>5</span><span>0</span><span>3</span></h1>
       </div>
-      <h2>we are sorry, but the page you requested was not found</h2>
-      <a class="text-sky-600 no-underline" href="{{ route('home') }}">Accueil</a>
+      <h2>Maintenance en cours...</h2>
+      <a class="text-slate-950 no-underline" href="{{ route('home') }}">Accueil</a>
     </div>
   </div>
 </body>

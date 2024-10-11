@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+  <script src="https://kit.fontawesome.com/2f9a7f15c2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
   <title>404</title>
  
   <style id="" media="all">
@@ -44,16 +47,20 @@
 
     a {
         text-decoration: none;
-        color: tomato;
+        color: white;
         font-weight: 500;
-        background-color: skyblue;
+        background-color: rgb(110 231 183);
         padding: 1rem 3rem;
         border-radius: 5px;
+        border-width: 2px;
+        border-color: rgb(16 185 129);
     }
 
     a:hover {
-        color: steelblue;
-        background-color: cornsilk;
+        color: white;
+        background-color: rgb(16 185 129);
+        border-width: 2px;
+        border-color: rgb(16 185 129);
     }
  
     .notfound {
@@ -146,8 +153,8 @@
         <h3>Oops! Page not found</h3>
         <h1><span>4</span><span>0</span><span>4</span></h1>
       </div>
-      <h2>we are sorry, but the page you requested was not found</h2>
-      <a class="text-sky-600 no-underline" href="{{ route('home') }}">Accueil</a>
+      <h2>nous sommes désolés, mais la page demandée n'a pas été trouvée</h2>
+      <a class="text-slate-950 no-underline" href="{{ route('home') }}">Accueil</a>
     </div>
   </div>
 </body>

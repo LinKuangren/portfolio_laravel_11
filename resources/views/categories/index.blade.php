@@ -31,7 +31,7 @@
             @endauth
             @guest
                 <a href="{{ route('categories.showProductions', ['name' => $categorie->name, 'categorie' => $categorie->id])}}">
-                    <article class="w-full min-h-24 content-center bg-emerald-200 hover:bg-emerald-300 rounded-md shadow-md">
+                    <article class="w-full min-h-28 content-center bg-emerald-200 hover:bg-emerald-300 rounded-md shadow-md">
                         <h3 class="text-3xl text-center">{{ $categorie->name }}</h3>
                     </article>
                 </a>

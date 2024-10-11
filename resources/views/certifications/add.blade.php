@@ -1,9 +1,9 @@
-@extends('layout.admin.base_admin')
+@extends('layout.base')
 
-@section('title', 'Création d\'une certification')
-@section('description', 'Page pour ajouter une certification.')
+@section('title', 'Création d\'un diplôme')
+@section('description', 'Page pour ajouter un diplôme.')
 
 @section('content')
-    <h1 class="text-4xl font-bold text-center mt-6 mb-3">Créer une certification</h1>
+    <h1 class="text-4xl font-bold text-center mt-6 mb-3">Créer un diplôme</h1>
     @include('certifications.form')
 @endsection

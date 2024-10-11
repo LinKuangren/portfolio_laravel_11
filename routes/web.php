@@ -107,17 +107,17 @@ Route::prefix('experiences')->name('experiences.')->controller(ExperiencesContro
 });
 
 Route::prefix('auth')->name('auth.')->controller(AuthController::class)->group(function() {
-    Route::get('/connexion', 'login')->name('login');
-    Route::post('connexion', 'loginPush');
+    Route::get('/cpsm', 'login')->name('login');
+    Route::post('/cpsm', 'loginPush');
 
-    Route::get('/inscription', 'register')->name('register');
-    Route::post('inscription', 'registerPush');
+    // Route::get('/inscription', 'register')->name('register');
+    // Route::post('inscription', 'registerPush');
 
     Route::delete('/deconnexion', 'logout')->name('logout');
 });
 
 Route::middleware([RedirectLogin::class])->group(function() {
-    Route::get('user', [UserController::class, 'profil'])->name('user.profil');
+    Route::get('/user', [UserController::class, 'profil'])->name('user.profil');
 });
 
 Route::get('/download_cv', [MainController::class, 'download'])->name('download_cv');

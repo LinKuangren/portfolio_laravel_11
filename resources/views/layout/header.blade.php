@@ -17,34 +17,40 @@
             @auth
             <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-tag mr-2"></i><a class="hover:text-emerald-500" href="{{ route('categories.index') }}">Categories</a></li>
             @endauth
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-certificate mr-2"></i><a class="hover:text-emerald-500" href="{{ route('certifications.index') }}">Certifications</a></li>
+            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-certificate mr-2"></i><a class="hover:text-emerald-500" href="{{ route('certifications.index') }}">Diplômes</a></li>
             <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-handshake mr-2"></i><a class="hover:text-emerald-500" href="{{ route('experiences.index') }}">Expériences</a></li>
             <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-folder-open mr-2"></i><a class="hover:text-emerald-500" href="{{ route('productions.index') }}">Réalisations</a></li>
             <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-database mr-2"></i><a class="hover:text-emerald-500" href="{{ route('skills.index') }}">Compétences</a></li>
             <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fas fa-address-book pr-1"></i><a class="hover:text-emerald-500" href="{{ route('contact') }}">Contact</a></li>
         </ul>
     </nav>
-    <div class="m-auto mb-2 mb-lg-0">
-        @auth
-        <div class="flex">
-            <a class="hover:text-emerald-500" href="{{ route('user.profil') }}">{{ Auth::user()->name }}</a>
-            <form action="{{ route('auth.logout') }}" method="post">
-                @method("delete")
-                @csrf
-                <button class="nav-link hover:text-emerald-500">Se déconnecter</button>
-            </form>
+    @auth
+        <div class="m-auto mb-2 mb-lg-0">
+            <div class="flex">
+                <a class="hover:text-emerald-500" href="{{ route('user.profil') }}">{{ Auth::user()->name }}</a>
+                <form action="{{ route('auth.logout') }}" method="post">
+                    @method("delete")
+                    @csrf
+                    <button class="nav-link hover:text-emerald-500">Se déconnecter</button>
+                </form>
+            </div>
         </div>
-        @endauth
-        @guest
-            <div class="flex gap-10">
+    @endauth
+    @guest
+        <div class="m-auto">
+            {{-- <div class="flex gap-10">
                 <div class="nav-item">
                     <a class="nav-link hover:text-emerald-500" href="{{ route('auth.login') }}">Se connecter</a>  
                 </div>
                 <div class="nav-item">
                     <a class="nav-link hover:text-emerald-500" href="{{ route('auth.register') }}">S'inscrire</a>
                 </div>
-            </div>
-        @endguest
+            </div> --}}
+        </div>
+    @endguest
+    <div class="flex justify-center mb-3">
+        <a href="https://github.com/LinKuangren"><i class="fa-brands fa-github fa-lg mr-3 hover:text-emerald-500"></i></a>
+        <a href="https://www.linkedin.com/in/romain-danne-969440194/"><i class="fa-brands fa-linkedin fa-lg hover:text-emerald-500"></i></a>
     </div>
     <a href="{{ route('download_cv') }}" class="px-3 py-2 bg-blue-800 hover:bg-blue-600 text-white rounded-sm"><i class="fa-solid fa-download mr-2"></i>Télécharger mon CV</a>
 </header>

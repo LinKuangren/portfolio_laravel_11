@@ -1,4 +1,4 @@
-@extends('layout.admin.base_admin')
+@extends('layout.base')
 
 @section('title', 'Création d\'une categorie')
 @section('description', 'Page pour ajouter une catégorie.')

@@ -24,7 +24,7 @@ class SkillsRequest extends FormRequest
     {
         return [
             'name' => ['required', Rule::unique('skills')->ignore(optional($this->skill)->id)],
-            'image' => ['image', 'min:100', 'max:10000'],
+            'image' => ['image', 'min:10', 'max:10000'],
             'level' => ['required'],
         ];
     }

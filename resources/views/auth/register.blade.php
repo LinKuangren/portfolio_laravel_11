@@ -1,10 +1,10 @@
-@extends('layout.admin.base_admin')
+@extends('layout.base')
 
 @section('title', 'Page d\'inscription')
 @section('description', 'Page d\'inscription sur le site.')
 
 @section('content')
-    <h1>Inscirption</h1>
+<h1 class="text-4xl font-bold text-center mt-6 mb-3">Inscription</h1>
     <form action="" method="post">
         <div class="mb-5">
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pseudo</label>

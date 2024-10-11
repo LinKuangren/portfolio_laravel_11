@@ -53,7 +53,7 @@ class CategoriesController extends Controller
 
         return view('categories.showProductions', [
             'categorie' => $categorie,
-            'productions' => $categorie->productions()->paginate(1),
+            'productions' => $categorie->productions()->paginate(6),
         ]);
     }
 
@@ -68,7 +68,7 @@ class CategoriesController extends Controller
 
         return view('categories.showExperiences', [
             'categorie' => $categorie,
-            'experiences' => $categorie->experiences()->paginate(1),
+            'experiences' => $categorie->experiences()->paginate(6),
         ]);
     }
 

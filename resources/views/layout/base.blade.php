@@ -12,12 +12,16 @@
     <meta name="description" content="@yield('description')">
 </head>
 <body class="flex bg-gray-300">
-    @include('layout.header')
+    @auth
+        @include('layout.admin.header_admin')
+    @endauth
+    @guest
+        @include('layout.header')
+    @endguest
     <div class="lg:mx-auto bg-white px-10 lg:w-[calc(42rem+12vw)] w-[calc(72rem+12vw)] min-h-screen">
         <div>
             @yield('content')
         </div>
     </div>
-    {{-- @include('layout.footer') --}}
 </body>
 </html>

@@ -1,4 +1,4 @@
-@extends('layout.admin.base_admin')
+@extends('layout.base')
 
 @section('title', 'Création d\'une experience pro')
 @section('description', 'Page pour ajouter une expérience pro.')

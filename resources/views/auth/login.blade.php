@@ -4,7 +4,7 @@
 @section('description', 'Page de connexion au site.')
 
 @section('content')
-    <h1>Connexion</h1>
+<h1 class="text-4xl font-bold text-center mt-6 mb-3">Connexion</h1>
     <form action="" method="post">
         <div class="mb-5">
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>

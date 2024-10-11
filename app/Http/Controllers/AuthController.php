@@ -30,6 +30,11 @@ class AuthController extends Controller
 
             return redirect()->intended(route('home'))->with('success', 'Vous ete connecté !');
         };
+
+        if (!$user) {
+            return redirect()->intended(route('home'))->with('success', 'Vous ete déjà connecté.');
+        }
+
         return to_route('auth.login')->withErrors([
             'password' => "Email or Password invalide"
         ])->onlyInput('email');

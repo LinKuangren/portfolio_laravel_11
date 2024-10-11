@@ -26,7 +26,7 @@ class ExperiencesRequest extends FormRequest
         return [
             'title' => ['required', 'min:4', Rule::unique('experiences')->ignore($this->route()->parameter('experience'))],
             'slug' => ['required', 'min:4', 'regex:/^[A-Za-z0-9\-]+$/', Rule::unique('experiences')->ignore($this->route()->parameter('experience'))],
-            'image' => ['image', 'min:100', 'max:10000'],
+            'image' => ['image', 'min:10', 'max:10000'],
             'company' => ['required', ],
             'content' => [],
             'categories' => ['array', 'exists:categories,id'],

@@ -13,7 +13,7 @@ class CertificationsController extends Controller
      */
     public function index()
     {
-        $certifications = Certifications::paginate(3);
+        $certifications = Certifications::paginate(4);
 
         return View('certifications.index', [
             'certifications' => $certifications,
