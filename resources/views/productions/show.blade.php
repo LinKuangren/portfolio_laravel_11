@@ -4,20 +4,34 @@
 @section('description', 'Page d\'information sur une réalisation.')
 
 @section('content')
-    <img class="h-32" src="{{ $production->imageUrl() }}" alt="{{ $production->image }}">
-    <h1>{{ $production->title }}</h1>
-    <p>{{ $production->content }}</p>
-    @if ($production->categories->isEmpty())
-        <div>
-            <h3>Catégories :</h3>
-            <p>Aucune catégorie</p>
+    <h1 class="text-4xl font-bold text-center mt-6 mb-3">{{ $production->title }}</h1>
+    <div class="grid">
+        <div class="grid justify-center">
+            <img class="w-auto max-w-lg" src="{{ $production->imageUrl() }}" alt="{{ $production->image }}">
+            @if ($production->url !== null)
+                <div class="flex py-1 justify-center border-2 border-emerald-300">
+                    <a class="px-8 py-4 sm:px-5 sm:py-2 text-center bg-blue-800 text-white rounded-sm hover:bg-blue-500" href="{{ $production->url }}">Voir site</a>
+                </div>
+            @endif
         </div>
-    @else
-        <div>
-            <h3>Catégories :</h3>
-            @foreach ($production->categories as $categorie)
-                <a class="hover:text-sky-600" href="{{ route('categories.showProductions', ['name' => $categorie->name, 'categorie' => $categorie->id])}}">{{ $categorie->name }}</a>
-            @endforeach
+        <div class="grid content-around sm:ml-4 w-96">
+            @if ($production->categories->isEmpty())
+                <div class="mt-3 mb-3">
+                    <h3 class="mb-1 font-bold">Catégories</h3>
+                    <p>Aucune catégorie</p>
+                </div>
+            @else
+                <div class="mt-3 mb-3">
+                    <h3 class="mb-1 font-bold">Catégories</h3>
+                    <div class="gap-1 flex">
+                        @foreach ($production->categories as $categorie)
+                            <a class="py-1 px-5 text-white rounded-3xl bg-blue-800 hover:bg-blue-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
+                                <small>{{ $categorie->name }}</small>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
         </div>
-    @endif
+    </div>
 @endsection

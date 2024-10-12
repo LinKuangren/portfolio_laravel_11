@@ -11,7 +11,7 @@
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
 </head>
-<body class="flex bg-gray-300">
+<body class="flex sm:bg-gray-300">
     @auth
         @include('layout.admin.header_admin')
     @endauth

@@ -14,7 +14,7 @@ class Productions extends Model
         'title',
         'slug',
         'image',
-        'content',
+        'url',
     ];
 
     public function categories() {

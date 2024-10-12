@@ -24,10 +24,10 @@ class ProductionsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', Rule::unique('productions')->ignore($this->route()->parameter('production'))],
+            'title' => [Rule::unique('productions')->ignore($this->route()->parameter('production'))],
             'slug' => ['required', 'min:4', 'regex:/^[A-Za-z0-9\-]+$/', Rule::unique('productions')->ignore($this->route()->parameter('production'))],
             'image' => ['image', 'min:10', 'max:10000'],
-            'content' => [],
+            'url' => [],
             'categories' => ['array', 'exists:categories,id'],
         ];
     }

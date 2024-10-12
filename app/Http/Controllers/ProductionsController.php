@@ -47,7 +47,7 @@ class ProductionsController extends Controller
     {
         $production = Productions::create($this->EditImage(new Productions(), $request));
         $production->categories()->sync($request->validated('categories'));
-        return redirect()->route('productions.show', ['slug' => $production->slug, 'production' => $production->id])->with('success', "la réalisation a été créé avec succes !");
+        return redirect()->route('productions.index', ['slug' => $production->slug, 'production' => $production->id])->with('success', "la réalisation a été créé avec succes !");
     }
 
     /**
