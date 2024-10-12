@@ -13,12 +13,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
         @foreach ($certifications as $certification)
             @auth  
-                <article class="w-full min-h-32 content-center bg-emerald-200 hover:bg-emerald-300 rounded-md shadow-md">
+                <article class="w-full p-4 min-h-32 content-center bg-emerald-200 hover:bg-emerald-300 rounded-md [--shadow:rgba(60,64,67,0.3)_0_1px_2px_0,rgba(60,64,67,0.15)_0_2px_6px_2px] [box-shadow:var(--shadow)]">
                     <div class="flex justify-center">
                         <img class="h-20 my-8"" src="{{ asset('images/diplome.png') }}" alt="{{ asset('images/diplome.png') }}">
                     </div>
                     <h3 class="text-3xl font-bold text-center">{{ $certification->name }}</h3>
-                    <p class="text-lg text-center"><strong>Année : </strong> {{ $certification->year }}</p>
+                    <p class="text-center"><strong>Année : </strong> {{ $certification->year }}</p>
                     @auth
                         <div class="flex mt-2 gap-3 justify-center">
                             <a class="px-5 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-sm" href="{{ route('certifications.edit', ['certification' => $certification->id]) }}">Modifier</a>
@@ -32,7 +32,7 @@
                 </article>  
             @endauth
             @guest
-                <article class="w-full min-h-28 content-center bg-emerald-200 hover:bg-emerald-300 rounded-md shadow-md">
+                <article class="w-full p-4 min-h-28 content-center bg-emerald-200 hover:bg-emerald-300 rounded-md [--shadow:rgba(60,64,67,0.3)_0_1px_2px_0,rgba(60,64,67,0.15)_0_2px_6px_2px] [box-shadow:var(--shadow)]">
                     <div class="flex justify-center">
                         <img class="h-20 my-8"" src="{{ asset('images/diplome.png') }}" alt="{{ asset('images/diplome.png') }}">
                     </div>

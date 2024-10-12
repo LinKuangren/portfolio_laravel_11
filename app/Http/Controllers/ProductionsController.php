@@ -18,7 +18,7 @@ class ProductionsController extends Controller
      */
     public function index()
     {
-        $products = Productions::paginate(3);
+        $products = Productions::paginate(9);
 
         return view('productions.index', [
             'productions' => $products,
