@@ -16,7 +16,8 @@ class Skills extends Model
         'level',
     ];
 
-    public function imageUrl(): String {
-        return Storage::disk('public')->url($this->image);
+    public function imageUrl(): string
+    {
+        return asset('storage/' . $this->image);
     }
 }

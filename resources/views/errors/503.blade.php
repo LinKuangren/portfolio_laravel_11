@@ -151,7 +151,6 @@
         <h1><span>5</span><span>0</span><span>3</span></h1>
       </div>
       <h2>Maintenance en cours...</h2>
-      <a class="text-slate-950 no-underline" href="{{ route('home') }}">Accueil</a>
     </div>
   </div>
 </body>

@@ -23,7 +23,8 @@ class Experiences extends Model
         return $this->belongsToMany(Categories::class);
     }
 
-    public function imageUrl(): String {
-        return Storage::disk('public')->url($this->image);
+    public function imageUrl(): string
+    {
+        return asset('storage/' . $this->image);
     }
 }
