@@ -14,9 +14,9 @@ class MainController extends Controller
 {
     public function home() 
     {
-        $experiences = Experiences::orderBy('created_at', 'asc')->get()->take(3);
-        $productions = Productions::orderBy('created_at', 'asc')->get()->take(3);
-        $certifications = Certifications::orderBy('created_at', 'asc')->get()->take(2);
+        $experiences = Experiences::orderBy('created_at', 'desc')->get()->take(3);
+        $productions = Productions::orderBy('created_at', 'desc')->get()->take(3);
+        $certifications = Certifications::orderBy('created_at', 'desc')->get()->take(2);
 
         return view('main.home', [
             'experiences' => $experiences,

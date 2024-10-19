@@ -24,7 +24,7 @@
             @else
                 <div class="mt-3 mb-3">
                     <h3 class="mb-1 font-bold">Catégories</h3>
-                    <div class="gap-1 flex">
+                    <div class="gap-1 flex flex-wrap">
                         @foreach ($experience->categories as $categorie)
                             <a class="py-1 px-5 text-white rounded-3xl bg-blue-800 hover:bg-blue-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
                                 <small>{{ $categorie->name }}</small>

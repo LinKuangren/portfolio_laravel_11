@@ -37,6 +37,6 @@
                 </a>
             @endguest
         @endforeach
+        {{ $categories->links('pagination::tailwind') }}
     </div>
-    {{ $categories->links('pagination::tailwind') }}
 @endsection

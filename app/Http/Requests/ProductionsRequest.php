@@ -26,7 +26,7 @@ class ProductionsRequest extends FormRequest
         return [
             'title' => [Rule::unique('productions')->ignore($this->route()->parameter('production'))],
             'slug' => ['required', 'min:4', 'regex:/^[A-Za-z0-9\-]+$/', Rule::unique('productions')->ignore($this->route()->parameter('production'))],
-            'image' => ['image', 'min:10', 'max:10000'],
+            'image' => ['image', 'max:10000'],
             'url' => [],
             'categories' => ['array', 'exists:categories,id'],
         ];

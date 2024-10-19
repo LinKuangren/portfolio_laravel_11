@@ -15,7 +15,7 @@ class ExperiencesController extends Controller
      */
     public function index()
     {
-        $experiences = Experiences::paginate(9);
+        $experiences = Experiences::paginate(8);
 
         return view('experiences.index', [
             'experiences' => $experiences,

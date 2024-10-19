@@ -15,7 +15,7 @@ class SkillsController extends Controller
      */
     public function index()
     {
-        $skills = Skills::paginate(9);
+        $skills = Skills::paginate(8);
 
         return view('skills.index', [
             'skills' => $skills,
