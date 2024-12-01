@@ -13,15 +13,15 @@
     <hr class="ml-2 mr-2 mb-3 mt-2"/>
     <nav class="text-lg m-4">
         <ul>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-house mr-2"></i><a class="hover:text-emerald-500" href="{{ route('home') }}" class="">Accueil</a></li>
+            <li class="mb-4 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-house mr-2"></i><a class="hover:text-emerald-500" href="{{ route('home') }}" class="">Accueil</a></li>
             @auth
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-tag mr-2"></i><a class="hover:text-emerald-500" href="{{ route('categories.index') }}">Categories</a></li>
+            <li class="mb-4 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-tag mr-2"></i><a class="hover:text-emerald-500" href="{{ route('categories.index') }}">Categories</a></li>
             @endauth
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-certificate mr-2"></i><a class="hover:text-emerald-500" href="{{ route('certifications.index') }}">Diplômes</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-handshake mr-2"></i><a class="hover:text-emerald-500" href="{{ route('experiences.index') }}">Expériences</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-folder-open mr-2"></i><a class="hover:text-emerald-500" href="{{ route('productions.index') }}">Réalisations</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-database mr-2"></i><a class="hover:text-emerald-500" href="{{ route('skills.index') }}">Compétences</a></li>
-            <li class="mb-4 hover:bg-gray-500 hover:rounded-sm hover:shadow-md"><i class="fas fa-address-book pr-1"></i><a class="hover:text-emerald-500" href="{{ route('contact') }}">Contact</a></li>
+            <li class="mb-4 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-certificate mr-2"></i><a class="hover:text-emerald-500" href="{{ route('certifications.index') }}">Diplômes</a></li>
+            <li class="mb-4 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-handshake mr-2"></i><a class="hover:text-emerald-500" href="{{ route('experiences.index') }}">Expériences</a></li>
+            <li class="mb-4 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-folder-open mr-2"></i><a class="hover:text-emerald-500" href="{{ route('productions.index') }}">Réalisations</a></li>
+            <li class="mb-4 hover:rounded-sm hover:shadow-md"><i class="fa-solid fa-database mr-2"></i><a class="hover:text-emerald-500" href="{{ route('skills.index') }}">Compétences</a></li>
+            <li class="mb-4 hover:rounded-sm hover:shadow-md"><i class="fas fa-address-book pr-1"></i><a class="hover:text-emerald-500" href="{{ route('contact') }}">Contact</a></li>
         </ul>
     </nav>
     @auth

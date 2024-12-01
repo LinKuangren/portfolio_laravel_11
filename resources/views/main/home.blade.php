@@ -27,7 +27,7 @@
         <h3 class="text-2xl font-bold text-center mt-6 mb-3">Diplômes</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
             @foreach ($certifications as $certification)
-                <article class="w-full min-h-28 content-center bg-emerald-200 border-2 border-emerald-300 hover:bg-emerald-300 rounded-md shadow-md">
+                <article class="w-full min-h-28 content-center bg-emerald-400 border-2 border-emerald-400 hover:bg-emerald-300 rounded-md shadow-md">
                     <div class="flex justify-center">
                         <img class="h-20 my-8" src="{{ asset('images/diplome.png') }}" alt="{{ asset('images/diplome.png') }}">
                     </div>
@@ -41,7 +41,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-4">
             @foreach ($experiences as $experience)
                 <a href="{{ route('experiences.show', ['experience' => $experience->id, 'slug' => $experience->slug]) }}">
-                    <article class="w-full min-h-28 content-center bg-emerald-200 border-2 border-emerald-300 hover:bg-emerald-300 rounded-md shadow-md">
+                    <article class="w-full min-h-28 content-center bg-emerald-400 border-2 border-emerald-400 hover:bg-emerald-300 rounded-md shadow-md">
                         <img class="w-full bg-white rounded-t-md" src="{{ $experience->imageUrl() }}" alt="{{ $experience->image}}">
                         <h3 class="text-center text-xl py-2">{{ $experience->title }}</h3>
                     </article>
@@ -55,15 +55,15 @@
             @foreach ($productions as $production)
                 <div>
                     <a href="{{ route('productions.show', ['production' => $production->id, 'slug' => $production->slug]) }}">
-                        <article class="w-full min-h-28 content-center bg-emerald-200 border-2 border-emerald-300 hover:bg-emerald-300 rounded-t-md shadow-md">
+                        <article class="w-full min-h-28 content-center bg-emerald-400 border-2 border-emerald-400 hover:bg-emerald-300 rounded-t-md shadow-md">
                             <div class="bg-white rounded-t-md">
-                                <img class="w-full rounded-t-md" src="{{ $production->imageUrl() }}" alt="{{ $production->image}}">
+                                <img class="w-full rounded-t-md object-scale-down" src="{{ $production->imageUrl() }}" alt="{{ $production->image}}">
                             </div>
                             <h3 class="text-center text-xl py-2">{{ $production->title }}</h3>
                         </article>
                     </a>
                     @if ($production->url !== null)
-                        <div class="flex py-1 justify-center border-2 border-emerald-300">
+                        <div class="flex justify-center">
                             <a class="px-8 py-4 sm:px-5 sm:py-2 text-center bg-blue-800 text-white rounded-sm hover:bg-blue-500" href="{{ $production->url }}">Voir site</a>
                         </div>
                     @endif

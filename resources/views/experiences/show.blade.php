@@ -9,24 +9,24 @@
         <img class="w-96" src="{{ $experience->imageUrl() }}" alt="{{ $experience->image }}">
         <div class="grid content-around sm:ml-4 w-96">
             <div class="mt-3">
-                <h3 class="mb-1 font-bold">Entreprise</h3>
-                <p class="h-10 p-2 bg-emerald-200 rounded-sm">{{ $experience->company }}</p>
+                <h3 class="mb-1 font-bold">Entreprise :</h3>
+                <p class="h-10 p-2 bg-emerald-400 rounded-sm">{{ $experience->company }}</p>
             </div>
             <div class="mt-3">
-                <h3 class="mb-1 font-bold">Durée</h3>
-                <p class="h-10 p-2 bg-emerald-200 rounded-sm">{{ $experience->time }}</p>
+                <h3 class="mb-1 font-bold">Durée :</h3>
+                <p class="h-10 p-2 bg-emerald-400 rounded-sm">{{ $experience->time }}</p>
             </div>
             @if ($experience->categories->isEmpty())
                 <div class="mt-3 mb-3">
-                    <h3 class="mb-1 font-bold">Catégories</h3>
+                    <h3 class="mb-1 font-bold">Catégories :</h3>
                     <p>Aucune catégorie</p>
                 </div>
             @else
                 <div class="mt-3 mb-3">
-                    <h3 class="mb-1 font-bold">Catégories</h3>
+                    <h3 class="mb-1 font-bold">Catégories :</h3>
                     <div class="gap-1 flex flex-wrap">
                         @foreach ($experience->categories as $categorie)
-                            <a class="py-1 px-5 text-white rounded-3xl bg-blue-800 hover:bg-blue-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
+                            <a class="py-1 px-5 text-white rounded-3xl bg-gray-600 hover:bg-gray-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
                                 <small>{{ $categorie->name }}</small>
                             </a>
                         @endforeach
@@ -36,6 +36,6 @@
         </div>
     </div>
     <div class="mt-4 mb-28">
-        <p class="h-10 p-2 bg-emerald-200 rounded-sm">{{ $experience->content }}</p>
+        <p class="p-2 bg-emerald-400 rounded-sm">{{ $experience->content }}</p>
     </div>
 @endsection

@@ -12,7 +12,7 @@
     @endauth
     <div class="sm:grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
         @foreach ($skills as $skill)
-            <article class="flex w-full p-4 min-h-28 content-center bg-emerald-200 hover:bg-emerald-300 rounded-md [--shadow:rgba(60,64,67,0.3)_0_1px_2px_0,rgba(60,64,67,0.15)_0_2px_6px_2px] [box-shadow:var(--shadow)]">
+            <article class="flex w-full p-4 min-h-28 content-center bg-emerald-500 hover:bg-emerald-400 rounded-md [--shadow:rgba(60,64,67,0.3)_0_1px_2px_0,rgba(60,64,67,0.15)_0_2px_6px_2px] [box-shadow:var(--shadow)]">
                 <div class="flex justify-center bg-white">
                     <img class="min-w-28 h-28" src="{{ $skill->imageUrl() }}" alt="{{ $skill->image }}">
                 </div>

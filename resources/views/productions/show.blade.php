@@ -9,7 +9,7 @@
         <div class="grid justify-center">
             <img class="w-auto max-w-lg" src="{{ $production->imageUrl() }}" alt="{{ $production->image }}">
             @if ($production->url !== null)
-                <div class="flex py-1 justify-center border-2 border-emerald-300">
+                <div class="flex mt-2 py-1 justify-center">
                     <a class="px-8 py-4 sm:px-5 sm:py-2 text-center bg-blue-800 text-white rounded-sm hover:bg-blue-500" href="{{ $production->url }}">Voir site</a>
                 </div>
             @endif
@@ -25,7 +25,7 @@
                     <h3 class="mb-1 font-bold">Catégories</h3>
                     <div class="gap-1 flex">
                         @foreach ($production->categories as $categorie)
-                            <a class="py-1 px-5 text-white rounded-3xl bg-blue-800 hover:bg-blue-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
+                            <a class="py-1 px-5 text-white rounded-3xl bg-gray-600 hover:bg-gray-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
                                 <small>{{ $categorie->name }}</small>
                             </a>
                         @endforeach
