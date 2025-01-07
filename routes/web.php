@@ -11,10 +11,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\RedirectLogin;
 use Illuminate\Support\Facades\Route;
 
+use Spatie\Honeypot\ProtectAgainstSpam;
+
 Route::get('/', [MainController::class, 'home'])->name('home');
 
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
-Route::post('/contact', [MainController::class, 'contactPush'])->name('contactPush');
+Route::post('/contact', [MainController::class, 'contactPush'])->middleware(ProtectAgainstSpam::class)->name('contactPush');
 
 Route::prefix('categories')->name('categories.')->controller(CategoriesController::class)->group(function() {
     Route::get('/', 'index')->name('index');
