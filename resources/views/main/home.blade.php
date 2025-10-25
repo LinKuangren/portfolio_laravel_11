@@ -1,6 +1,6 @@
 @extends('layout.base')
 
-@section('title', 'Page d\'accueil')
+@section('title', 'Portfolio Danné Romain')
 @section('description', 'Page d\'accueil du site.')
 
 @section('content')

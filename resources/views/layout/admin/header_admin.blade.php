@@ -7,7 +7,7 @@
 <header id="menu" class="fixed hidden overflow-hidden lg:flex flex-col h-full bg-blue-900 text-white shadow-2xl px-5 py-4">
     <div class="w-32 m-4 mb-8 self-center">
         <a href="{{ route('home') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo-danne-romain" class="ease-in-out transform hover:-translate-y-0.5">
+            <img src="{{ asset('images/logo.png') }}" alt="Danne_Romain" class="ease-in-out transform hover:-translate-y-0.5">
         </a>
     </div>
     <p class="text-center font-bold">ADMINISTRATEUR</p>
