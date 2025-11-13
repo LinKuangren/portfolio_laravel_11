@@ -37,6 +37,8 @@
                 </a>
             @endguest
         @endforeach
+    </div>
+    <div class="py-4">
         {{ $categories->links('pagination::tailwind') }}
     </div>
 @endsection

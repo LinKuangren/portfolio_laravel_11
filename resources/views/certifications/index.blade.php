@@ -41,6 +41,8 @@
                 </article>
             @endguest
         @endforeach
+    </div>
+    <div class="py-4">
         {{ $certifications->links('pagination::tailwind') }}
     </div>
 @endsection

@@ -23,7 +23,7 @@
                         <a href="{{ route('productions.show', ['slug' => $production->slug, 'production' => $production->id]) }}"><h3 class="text-3xl font-bold text-center mt-2 mb-4">{{ $production->title }}</h3></a>
                         <div class="gap-1 flex-wrap flex">
                             @foreach ($production->categories as $categorie)
-                                <a class="py-1 px-5 text-white rounded-3xl bg-gray-600 hover:bg-gray-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
+                                <a class="sm:py-1 py-2 sm:px-5 px-6 text-white rounded-lg bg-gray-600 hover:bg-gray-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
                                     <small>{{ $categorie->name }}</small>
                                 </a>
                             @endforeach
@@ -53,10 +53,10 @@
                             <div class="flex justify-center bg-white rounded-t-md">
                                 <img class="w-96 object-scale-down h-96" src="{{ $production->imageUrl() }}" alt="{{ $production->image }}">
                             </div>
-                            <h3 class="text-3xl font-bold text-center mt-2 mb-4">{{ $production->title }}</h3>
-                            <div class="gap-1 flex justify-center flex-wrap">
+                            <a href="{{ route('productions.show', ['slug' => $production->slug, 'production' => $production->id]) }}"><h3 class="text-3xl font-bold text-center mt-2 mb-4">{{ $production->title }}</h3></a>
+                            <div class="gap-1 flex flex-wrap">
                                 @foreach ($production->categories as $categorie)
-                                    <a class="py-1 px-5 text-white rounded-3xl bg-gray-600 hover:bg-gray-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
+                                    <a class="sm:py-1 py-2 sm:px-5 px-6 text-white rounded-lg bg-gray-600 hover:bg-gray-500" href="{{ route('categories.showProductions', ['categorie' => $categorie->id, 'name' => $categorie->name]) }}">
                                         <small>{{ $categorie->name }}</small>
                                     </a>
                                 @endforeach
@@ -71,6 +71,8 @@
                 </div>
             @endguest
         @endforeach
+    </div>
+    <div class="py-4">
         {{ $productions->links('pagination::tailwind') }}
     </div>
 @endsection

@@ -34,6 +34,8 @@
                 </div>
             </article>
         @endforeach
+    </div>
+    <div class="py-4">
         {{ $skills->links('pagination::tailwind') }}
     </div>
 @endsection
