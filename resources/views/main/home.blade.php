@@ -23,6 +23,14 @@
             <p>Je suis quelqu'un de <strong>sérieux</strong>, de <strong>rigoureux, soucieux de bien faire</strong>. Je ne regarde pas le temps que je passe sur un projet, seul compte le résultat.</p>
         </div>
     </div>
+    <div style="position: relative; width: 100%; height: 0; padding-bottom: 60%; overflow: hidden; border-radius: 16px;">
+        <iframe 
+            src="https://linkuangren.github.io/test-deepsite/"
+            style="position: absolute; top:0; left:0; width: 100%; height: 100%; border: none;"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+    </div>
     <div>
         <h3 class="text-2xl font-bold text-center mt-6 mb-3">Diplômes</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
