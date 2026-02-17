@@ -31,6 +31,13 @@ Route::prefix('categories')->name('categories.')->controller(CategoriesControlle
         'name' => '[A-Za-z0-9\-\%]+',
     ])->name('showExperiences');
 
+    Route::get('/{name}-{categorie}/jobs', [CategoriesController::class, 'showJobs'])
+    ->where([
+        'categorie' => '[0-9]+',
+        'name' => '[A-Za-z0-9\-\%]+',
+    ])
+    ->name('showJobs');
+
     Route::middleware([RedirectLogin::class])->group(function() {
         Route::get('/ajout', 'create')->name('add');
         Route::post('/ajout', 'store');

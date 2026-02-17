@@ -73,6 +73,37 @@ class CategoriesController extends Controller
     }
 
     /**
+     * Affiche les productions filtrées par métier (Graphiste ou Développeur)
+     */
+    public function showJobs(string $name, Categories $categorie)
+    {
+        // Sécurité : redirection si le slug dans l'URL ne correspond pas à l'ID
+        if ($categorie->name !== $name) {
+            return to_route('categories.showJobs', [
+                'name' => $categorie->name, 
+                'categorie' => $categorie->id,
+                'job' => request('job')
+            ]);
+        }
+
+        // Récupération du filtre 'job'
+        $job = request('job');
+
+        // Logique de filtrage dynamique
+        $productions = match($job) {
+            'graphiste'  => $categorie->graphiste()->paginate(12),
+            'developpeur' => $categorie->developpeur()->paginate(12),
+            default      => $categorie->productions()->paginate(12), // Affiche tout par défaut
+        };
+
+        return view('categories.showJobs', [
+            'categorie'   => $categorie,
+            'productions' => $productions,
+            'currentJob'  => $job
+        ]);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Categories $categorie)
