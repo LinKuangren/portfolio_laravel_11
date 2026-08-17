@@ -6,8 +6,8 @@
 @section('content')
     <h1 class="text-4xl font-bold text-center mt-6 mb-3">{{ $experience->title }}</h1>
     <div class="grid sm:flex justify-center">
-        <img class="w-96" src="{{ $experience->imageUrl() }}" alt="{{ $experience->image }}">
-        <div class="grid content-around sm:ml-4 w-96">
+        <img class="w-auto sm:max-w-lg justify-self-center" src="{{ $experience->imageUrl() }}" alt="{{ $experience->image }}">
+        <div class="grid content-around sm:ml-4 sm:w-64 w-80">
             <div class="mt-3">
                 <h3 class="mb-1 font-bold">Entreprise :</h3>
                 <p class="h-10 p-2 bg-emerald-400 rounded-sm">{{ $experience->company }}</p>

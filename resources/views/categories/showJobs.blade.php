@@ -7,13 +7,13 @@
     <h1 class="text-4xl text-center mt-6 mb-3"><strong>Categorie :</strong> {{ $categorie->name }}</h1>
     <div class="sm:flex grid gap-4 my-4 justify-center">
         {{-- Bouton vers la catégorie Graphiste --}}
-        <a href="{{ route('categories.showJobs', ['name' => 'Graphiste', 'categorie' => 7]) }}" 
+        <a href="{{ route('categories.showJobs', ['name' => 'Graphiste', 'categorie' => 21]) }}" 
         class="px-6 py-3 bg-emerald-500 text-white rounded shadow hover:bg-emerald-400 font-bold">
         Voir Graphisme
         </a>
 
         {{-- Bouton vers la catégorie Développeur --}}
-        <a href="{{ route('categories.showJobs', ['name' => 'Developpeur', 'categorie' => 8]) }}" 
+        <a href="{{ route('categories.showJobs', ['name' => 'Developpeur', 'categorie' => 20]) }}" 
         class="px-6 py-3 bg-blue-800 text-white rounded shadow hover:bg-blue-500 font-bold">
         Voir Développement
         </a>
